@@ -1,5 +1,4 @@
-# DevEnv 1.0
-
+# Development Environment
 ### How to use
 1. Install Docker and Docker Compose.
 2. Run `docker-compose up -d`
