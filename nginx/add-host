@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ $1 != "react" ] && [ $1 != "flask" ]; then
+    echo "Invalid '$1' type. (Valid: react)"
+    exit 0
+fi
+
+cp nginx/virtual-hosts/samples/$1-app.conf.sample nginx/virtual-hosts/$2.conf
+sed -i "s/$1-app/$2/g" nginx/virtual-hosts/$2.conf
+docker restart nginx
+
+echo -e "127.0.0.1 $2.localhost" | sudo tee -a /etc/hosts

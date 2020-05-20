@@ -1,0 +1,5 @@
+mysql/data
+
+nginx/virtual-hosts/*
+!nginx/virtual-hosts/samples
+!nginx/virtual-hosts/phpmyadmin.conf

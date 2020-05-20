@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker exec -i mysql mysql $1 < "$2"

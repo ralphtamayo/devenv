@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    network_mode: devenv
+    restart: unless-stopped
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    network_mode: devenv
+    restart: unless-stopped
+    environment:
+      - PMA_HOST=mysql
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    network_mode: devenv
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/virtual-hosts:/etc/nginx/conf.d
