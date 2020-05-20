@@ -1,4 +1,6 @@
 # Development Environment
+A docker development environment with MySQL 8.0, phpMyAdmin, and Nginx that currently supports React and Flask apps.
+
 ### How to use
 1. Install Docker and Docker Compose.
 2. Run `docker-compose up -d`
