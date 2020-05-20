@@ -1,12 +1,22 @@
 #!/usr/bin/env bash
 
-if [ $1 != "react" ] && [ $1 != "flask" ]; then
-    echo "Invalid '$1' type. (Valid: react)"
+if [ -z "$1" ]; then
+    echo "No application type given."
     exit 0
 fi
 
-cp nginx/virtual-hosts/samples/$1-app.conf.sample nginx/virtual-hosts/$2.conf
-sed -i "s/$1-app/$2/g" nginx/virtual-hosts/$2.conf
+if [ -z "$2" ]; then
+    echo "No application name given."
+    exit 0
+fi
+
+if [ $1 != "react" ] && [ $1 != "flask" ]; then
+    echo "Invalid '$1' type. (Valid: react, flask)"
+    exit 0
+fi
+
+cp virtual-hosts/samples/$1-app.conf.sample virtual-hosts/$2.conf
+sed -i "s/$1-app/$2/g" virtual-hosts/$2.conf
 docker restart nginx
 
 echo -e "127.0.0.1 $2.localhost" | sudo tee -a /etc/hosts
