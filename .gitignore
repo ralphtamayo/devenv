@@ -1,5 +1,6 @@
-mysql/data
+data/*
+!data/.gitignore
 
-nginx/virtual-hosts/*
-!nginx/virtual-hosts/samples
-!nginx/virtual-hosts/phpmyadmin.conf
+virtual-hosts/*
+!virtual-hosts/samples
+!virtual-hosts/phpmyadmin.conf

@@ -9,7 +9,7 @@ services:
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - ./mysql/data:/var/lib/mysql
+      - ./data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -27,4 +27,4 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./nginx/virtual-hosts:/etc/nginx/conf.d
+      - ./virtual-hosts:/etc/nginx/conf.d
